@@ -1,3 +1,8 @@
+// ==========================================================================
+// FILE: script.js
+// TUJUAN: Menambahkan fitur interaktif (Memenuhi Bobot 15% UTS)
+// ==========================================================================
+
 // ==========================================
 // 1. FITUR INTERAKTIF: Ganti Tema (Dark/Light Mode)
 // ==========================================
@@ -13,7 +18,7 @@ if (localStorage.getItem('theme') === 'dark') {
 toggleBtn.addEventListener('click', () => {
     body.classList.toggle('dark-mode');
     
-    // Ubah teks tombol dan simpan preferensi pengguna
+    // Ubah teks tombol dan simpan preferensi pengguna agar tetap sama saat di-refresh
     if (body.classList.contains('dark-mode')) {
         toggleBtn.textContent = '☀️ Mode Siang';
         localStorage.setItem('theme', 'dark');
@@ -24,22 +29,33 @@ toggleBtn.addEventListener('click', () => {
 });
 
 // ==========================================
-// 2. FITUR INTERAKTIF: Tombol Pesan Roti
+// 2. FITUR INTERAKTIF: Tombol Pesan Roti (Optimized for Mobile)
 // ==========================================
 function pesanRoti(namaRoti) {
-    // Tampilkan notifikasi sederhana
+    // 1. Tampilkan notifikasi sederhana
     alert(`Terima kasih! Anda telah memilih:\n🍞 "${namaRoti}"\n\nAnda akan diarahkan ke WhatsApp untuk menyelesaikan pemesanan.`);
     
-    // GANTI NOMOR INI dengan nomor WhatsApp kamu (format: 628xxx, tanpa + atau 0 di depan)
+    // 2. Nomor WhatsApp tujuan (Ganti jika perlu, format: 628xxx tanpa + atau 0)
     const nomorWA = "6285189921103"; 
     
-    // Buat pesan otomatis yang rapi
+    // 3. Buat pesan otomatis yang rapi
     const pesan = `Halo, saya ingin memesan *${namaRoti}*. Apakah stok masih tersedia?`;
     
-    // Ubah pesan menjadi format URL agar bisa dikirim via link
+    // 4. Ubah pesan menjadi format URL (mengubah spasi jadi %20, dll)
     const pesanEncoded = encodeURIComponent(pesan);
     
-    // Buka WhatsApp di tab baru
-    const urlWA = `https://wa.me/${nomorWA}?text=${pesanEncoded}`;
+    // 5. DETEKSI DEVICE: Apakah pengguna memakai HP atau Laptop?
+    const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+    
+    let urlWA;
+    if (isMobile) {
+        // Jika HP: Gunakan protocol 'whatsapp://' untuk membuka APLIKASI langsung
+        urlWA = `whatsapp://send?phone=${nomorWA}&text=${pesanEncoded}`;
+    } else {
+        // Jika Laptop/PC: Gunakan 'https://wa.me/' untuk membuka WHATSAPP WEB
+        urlWA = `https://wa.me/${nomorWA}?text=${pesanEncoded}`;
+    }
+    
+    // 6. Buka link WhatsApp
     window.open(urlWA, '_blank');
 }
