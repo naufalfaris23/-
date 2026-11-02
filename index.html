@@ -17,6 +17,18 @@
 <body>
 
     <!-- =========================================
+         TAMBAHAN: KOTAK IDENTITAS DI SEBELAH KIRI
+         ========================================= -->
+    <div class="kotak-identitas-kiri">
+        <ul>
+            <li><strong>Nama Lengkap:</strong> Naufal Faris</li>
+            <li><strong>NIM:</strong> 231111030</li>
+            <li><strong>Kelas:</strong> [Ganti dengan kelas aslimu]</li>
+            <li><strong>Tema Website:</strong> Kuliner - Roti Nusantara</li>
+        </ul>
+    </div>
+
+    <!-- =========================================
          1. HEADER & NAVIGASI (Tag Semantik HTML5)
          ========================================= -->
     <header>
@@ -81,7 +93,7 @@
                             <td><button onclick="pesanRoti('Roti Bakar Keju Susu')" class="btn-pesan">Pesan</button></td>
                         </tr>
                         <tr>
-                            <td>3</td>
+                            <td>3</td> <!-- Diperbaiki dari 4 menjadi 3 agar urut -->
                             <td>Croissant Butter</td>
                             <td>Pastry renyah berlapis dengan butter asli Prancis</td>
                             <td>Rp 22.000</td>
@@ -97,6 +109,10 @@
             <div class="container">
                 <h2 class="section-title">Galeri Kelezatan Kami</h2>
                 <div class="galeri-grid">
+                    <!-- 
+                      src: lokasi file gambar (pastikan folder 'images' ada)
+                      alt: teks alternatif jika gambar gagal dimuat (Penting untuk aksesibilitas)
+                    -->
                     <img src="images/roti1.jpg" alt="Roti Sobek Cokelat" class="img-galeri">
                     <img src="images/roti2.jpg" alt="Roti Bakar Keju" class="img-galeri">
                     <img src="images/roti3.jpg" alt="Croissant Butter" class="img-galeri">
@@ -110,6 +126,7 @@
                 <h2 class="section-title">Hubungi Kami</h2>
                 <p>Pesan sekarang melalui WhatsApp atau ikuti media sosial kami untuk promo terbaru!</p>
                 <div class="social-links">
+                    <!-- target="_blank" agar link terbuka di tab baru, user tidak meninggalkan website kita -->
                     <a href="https://wa.me/6285189921103" target="_blank" class="btn-wa">💬 WhatsApp</a>
                     <a href="https://www.instagram.com/ris_nfl21?srtk=dmc2ZXR3cHF4bXMy" target="_blank" class="btn-ig">📷 Instagram</a>
                     <a href="https://maps.google.com" target="_blank" class="btn-map">📍 Lokasi Toko</a>
@@ -119,28 +136,18 @@
     </main>
 
     <!-- =========================================
-         3. FOOTER & IDENTITAS (WAJIB ADA + KOTAK KECIL)
+         3. FOOTER & IDENTITAS (WAJIB ADA)
          ========================================= -->
     <footer>
         <div class="container">
             <p>&copy; 2026 Roti Nusantara. All Rights Reserved.</p>
             
-            <!-- KOTAK IDENTITAS MAHASISWA (Memenuhi Syarat UTS) -->
-            <div class="identity-box">
-                <!-- Kotak kecil / Ikon di sebelah kiri -->
-                <div class="identity-icon">👤</div>
-                
-                <!-- Daftar Informasi di sebelah kanan -->
-                <div class="identity-info">
-                    <ul>
-                        <li><strong>Nama Lengkap:</strong> Naufal Faris</li>
-                        <li><strong>NIM:</strong> 231111030</li>
-                        <li><strong>Kelas:</strong> [GANTI DENGAN KELAS ASLIMU, misal: SI-4A]</li>
-                        <li><strong>Tema Website:</strong> Kuliner - Roti Nusantara</li>
-                    </ul>
-                </div>
-            </div>
-            
+            <!-- PENTING: Ganti bagian dalam kurung siku [...] dengan data aslimu sebelum dikumpulkan! -->
+            <p class="identitas">
+                <strong>Nama:</strong> [Naufal Faris] | 
+                <strong>NIM:</strong> [231111030] | 
+                <strong>Kelas:</strong> [ Pemrograman Berbasis Web Lanjut]
+            </p>
         </div>
     </footer>
 
