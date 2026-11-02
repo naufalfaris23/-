@@ -5,18 +5,16 @@
    ========================================================================== */
 
 /* ==========================================================================
-   1. VARIABEL WARNA & TEMA (Memudahkan penggantian warna secara global)
+   1. VARIABEL WARNA & TEMA
    ========================================================================== */
 :root {
-    /* Warna default untuk Mode Siang (Light Mode) */
-    --bg-color: #fffaf0;       /* Latar belakang krem lembut */
-    --text-color: #333333;     /* Warna teks abu-abu gelap agar mudah dibaca */
-    --primary-color: #d2691e;  /* Warna utama: Coklat roti (tema kuliner) */
-    --secondary-color: #f5deb3;/* Warna sekunder: Krem muda untuk pembeda section */
-    --card-bg: #ffffff;        /* Warna latar belakang kartu atau tabel */
+    --bg-color: #fffaf0;
+    --text-color: #333333;
+    --primary-color: #d2691e;
+    --secondary-color: #f5deb3;
+    --card-bg: #ffffff;
 }
 
-/* Warna yang akan menggantikan variabel di atas saat kelas 'dark-mode' aktif */
 body.dark-mode {
     --bg-color: #1a1a1a;
     --text-color: #f5f5f5;
@@ -26,12 +24,11 @@ body.dark-mode {
 }
 
 /* ==========================================================================
-   2. RESET DASAR (Agar tampilan konsisten di semua browser: Chrome, Firefox, dll)
+   2. RESET DASAR
    ========================================================================== */
 * {
     margin: 0;
     padding: 0;
-    /* Mencegah padding menambah lebar total elemen, agar layout tidak rusak */
     box-sizing: border-box; 
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
@@ -39,16 +36,14 @@ body.dark-mode {
 body {
     background-color: var(--bg-color);
     color: var(--text-color);
-    line-height: 1.6; /* Jarak antar baris teks agar nyaman dibaca */
-    /* Transisi halus selama 0.3 detik saat ganti tema siang/malam */
+    line-height: 1.6;
     transition: background 0.3s, color 0.3s; 
 }
 
-/* Container pembungkus agar konten tidak melebar sampai ujung layar di monitor besar */
 .container {
     width: 90%;
     max-width: 1100px;
-    margin: 0 auto; /* Trik CSS untuk memposisikan elemen tepat di tengah horizontal */
+    margin: 0 auto;
 }
 
 /* ==========================================================================
@@ -58,29 +53,28 @@ header {
     background-color: var(--primary-color);
     color: white;
     padding: 1rem 0;
-    /* Sticky: Menu akan tetap menempel di atas layar saat user scroll ke bawah */
     position: sticky; 
     top: 0;
-    z-index: 100; /* Memastikan header selalu berada di lapisan paling atas */
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1); /* Bayangan halus di bawah header */
+    z-index: 100;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
 }
 
 .header-container {
-    display: flex; /* Mengatur logo dan menu agar bersebelahan (horizontal) */
-    justify-content: space-between; /* Mendorong logo ke kiri dan menu ke kanan */
+    display: flex;
+    justify-content: space-between;
     align-items: center;
-    flex-wrap: wrap; /* Agar elemen turun ke bawah jika layar terlalu kecil */
+    flex-wrap: wrap;
 }
 
 nav a {
     color: white;
-    text-decoration: none; /* Menghilangkan garis bawah default pada link */
+    text-decoration: none;
     margin: 0 10px;
     font-weight: 500;
 }
 
 nav a:hover {
-    text-decoration: underline; /* Munculkan garis bawah saat kursor diarahkan (hover) */
+    text-decoration: underline;
 }
 
 .btn-toggle {
@@ -88,18 +82,17 @@ nav a:hover {
     color: var(--primary-color);
     border: none;
     padding: 5px 10px;
-    border-radius: 15px; /* Membuat sudut tombol melengkung */
-    cursor: pointer; /* Mengubah kursor menjadi tangan saat di-hover */
+    border-radius: 15px;
+    cursor: pointer;
     font-weight: bold;
 }
 
 /* ==========================================================================
-   4. HERO SECTION (Bagian Pembuka / Banner Utama)
+   4. HERO SECTION
    ========================================================================== */
 .hero {
-    /* Gradient gelap di atas gambar agar teks putih di atasnya tetap terbaca jelas */
     background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=1200&q=80');
-    background-size: cover; /* Gambar otomatis menyesuaikan dan menutupi seluruh area */
+    background-size: cover;
     background-position: center;
     color: white;
     text-align: center;
@@ -120,18 +113,18 @@ nav a:hover {
     text-decoration: none;
     border-radius: 25px;
     font-weight: bold;
-    transition: transform 0.2s; /* Animasi halus untuk efek hover */
+    transition: transform 0.2s;
 }
 
 .btn-primary:hover {
-    transform: scale(1.05); /* Efek membesar 5% saat tombol disorot kursor */
+    transform: scale(1.05);
 }
 
 /* ==========================================================================
    5. PENGATURAN SECTION UMUM
    ========================================================================== */
 .section-padding {
-    padding: 60px 0; /* Memberikan jarak napas (spasi) yang lega di atas dan bawah section */
+    padding: 60px 0;
 }
 
 .section-title {
@@ -142,19 +135,18 @@ nav a:hover {
 }
 
 .bg-light {
-    background-color: var(--secondary-color); /* Membedakan warna latar antar section */
+    background-color: var(--secondary-color);
 }
 
 /* ==========================================================================
-   6. TABEL PRODUK (MEMENUHI SYARAT UTS: Table - Bobot 15%)
+   6. TABEL PRODUK
    ========================================================================== */
 .table-produk {
     width: 100%;
-    /* Menghilangkan jarak ganda antar border sel tabel agar terlihat rapi dan menyatu */
     border-collapse: collapse; 
     margin-top: 20px;
     background-color: var(--card-bg);
-    box-shadow: 0 4px 8px rgba(0,0,0,0.05); /* Efek kartu melayang */
+    box-shadow: 0 4px 8px rgba(0,0,0,0.05);
 }
 
 .table-produk th, .table-produk td {
@@ -169,15 +161,15 @@ nav a:hover {
 }
 
 .table-produk tr:hover {
-    background-color: #f1f1f1; /* Efek sorot (highlight) saat kursor berada di atas baris */
+    background-color: #f1f1f1;
 }
 
 body.dark-mode .table-produk tr:hover {
-    background-color: #444; /* Penyesuaian efek sorot untuk mode malam */
+    background-color: #444;
 }
 
 .btn-pesan {
-    background-color: #28a745; /* Warna hijau khas tombol aksi positif */
+    background-color: #28a745;
     color: white;
     border: none;
     padding: 8px 15px;
@@ -187,14 +179,13 @@ body.dark-mode .table-produk tr:hover {
 }
 
 .btn-pesan:hover {
-    background-color: #218838; /* Hijau lebih gelap saat di-hover */
+    background-color: #218838;
 }
 
 /* ==========================================================================
-   7. GALERI GAMBAR (MEMENUHI SYARAT UTS: Image - Bobot 15%)
+   7. GALERI GAMBAR
    ========================================================================== */
 .galeri-grid {
-    /* CSS Grid: Otomatis mengatur jumlah kolom. Minimal 250px, jika muat akan bertambah */
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 20px;
@@ -203,7 +194,6 @@ body.dark-mode .table-produk tr:hover {
 .img-galeri {
     width: 100%;
     height: 250px;
-    /* Mencegah gambar menjadi gepeng/terdistorsi, gambar akan di-crop rapi */
     object-fit: cover; 
     border-radius: 10px;
     box-shadow: 0 4px 10px rgba(0,0,0,0.1);
@@ -211,11 +201,11 @@ body.dark-mode .table-produk tr:hover {
 }
 
 .img-galeri:hover {
-    transform: scale(1.03); /* Efek zoom halus saat gambar disorot */
+    transform: scale(1.03);
 }
 
 /* ==========================================================================
-   8. KONTAK & LINK SOSIAL (MEMENUHI SYARAT UTS: Link - Bobot 15%)
+   8. KONTAK & LINK SOSIAL
    ========================================================================== */
 .text-center { text-align: center; }
 
@@ -236,7 +226,6 @@ body.dark-mode .table-produk tr:hover {
     transition: opacity 0.3s;
 }
 
-/* Warna khas masing-masing platform agar familiar bagi pengguna */
 .btn-wa { background-color: #25D366; }
 .btn-ig { background-color: #E1306C; }
 .btn-map { background-color: #4285F4; }
@@ -244,7 +233,7 @@ body.dark-mode .table-produk tr:hover {
 .social-links a:hover { opacity: 0.8; }
 
 /* ==========================================================================
-   9. FOOTER & IDENTITAS MAHASISWA (MEMENUHI SYARAT UTS: Identitas)
+   9. FOOTER & IDENTITAS MAHASISWA
    ========================================================================== */
 footer {
     background-color: #333;
@@ -261,11 +250,9 @@ footer {
 }
 
 /* ==========================================================================
-   10. RESPONSIVITAS MOBILE (MEMENUHI SYARAT UTS: Responsivitas - Bobot 10%)
-   Kode di dalam @media HANYA aktif jika lebar layar <= 768px (HP/Tablet)
+   10. RESPONSIVITAS MOBILE
    ========================================================================== */
 @media (max-width: 768px) {
-    /* Ubah header dari horizontal menjadi vertikal agar muat di layar HP */
     .header-container {
         flex-direction: column;
         text-align: center;
@@ -280,23 +267,22 @@ footer {
     }
     
     .hero {
-        padding: 50px 15px; /* Kurangi padding agar tidak memakan tempat di HP */
+        padding: 50px 15px;
     }
     
     .hero h2 {
-        font-size: 1.8rem; /* Perkecil ukuran font judul */
+        font-size: 1.8rem;
     }
     
     .section-title {
         font-size: 1.5rem;
     }
     
-    /* TABEL: Aktifkan scroll horizontal agar tabel tidak merusak layout di HP */
     .table-produk {
         display: block;
         overflow-x: auto;
         white-space: nowrap;
-        -webkit-overflow-scrolling: touch; /* Scroll halus di iOS */
+        -webkit-overflow-scrolling: touch;
     }
     
     .table-produk th, .table-produk td {
@@ -304,12 +290,10 @@ footer {
         font-size: 0.85rem;
     }
     
-    /* GALERI: Paksa menjadi 1 kolom penuh di HP agar gambar terlihat jelas */
     .galeri-grid {
         grid-template-columns: 1fr;
     }
     
-    /* TOMBOL SOSIAL: Lebar 80% agar mudah ditekan dengan jari di HP */
     .social-links {
         flex-direction: column;
         align-items: center;
@@ -318,5 +302,45 @@ footer {
     .social-links a {
         width: 80%;
         text-align: center;
+    }
+}
+
+/* ==========================================================================
+   11. TAMBAHAN: KOTAK IDENTITAS DI SEBELAH KIRI (Sesuai Permintaan)
+   ========================================================================== */
+.kotak-identitas-kiri {
+    position: fixed;
+    top: 90px; /* Jarak dari atas (di bawah header) */
+    left: 20px; /* Jarak dari kiri */
+    background-color: rgba(255, 255, 255, 0.95);
+    padding: 15px 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    z-index: 99;
+    border-left: 5px solid var(--primary-color);
+}
+
+.kotak-identitas-kiri ul {
+    margin: 0;
+    padding-left: 20px; /* Munculkan bullet points (•) */
+    list-style-type: disc;
+}
+
+.kotak-identitas-kiri li {
+    font-size: 14px;
+    margin-bottom: 6px;
+    color: var(--text-color);
+    line-height: 1.4;
+}
+
+/* Agar rapi saat dibuka di HP (tidak menutupi layar) */
+@media (max-width: 768px) {
+    .kotak-identitas-kiri {
+        position: relative;
+        top: 0;
+        left: 0;
+        margin: 10px auto;
+        width: 90%;
+        max-width: 400px;
     }
 }
